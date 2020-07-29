@@ -3,8 +3,8 @@ const express = require('express');
 //const nodemail = require('nodemailer');
 
 const app = express();
-const PORTA = 8787;
+const PORT = 8787;
 
-app.listen(PORTA, () => {
+app.listen(PORT, () => {
   console.log('Server Online');
 });
