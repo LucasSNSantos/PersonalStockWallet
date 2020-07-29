@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/LucasSNSantos/PersonalStockWallet/issues"
   },
-  "homepage": "https://github.com/LucasSNSantos/PersonalStockWallet#readme"
+  "homepage": "https://github.com/LucasSNSantos/PersonalStockWallet#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.26",
+    "nodemailer": "^6.4.10"
+  }
 }
