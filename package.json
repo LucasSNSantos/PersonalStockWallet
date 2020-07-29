@@ -1,0 +1,26 @@
+{
+  "name": "personalstockwallet",
+  "version": "1.0.0",
+  "description": "My personal Project about money and stock exchange",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasSNSantos/PersonalStockWallet.git"
+  },
+  "keywords": [
+    "Stock-Exchange",
+    "money",
+    "admin",
+    "Personal",
+    "wallet"
+  ],
+  "author": "Lucas Souza Nogueira Santos",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/LucasSNSantos/PersonalStockWallet/issues"
+  },
+  "homepage": "https://github.com/LucasSNSantos/PersonalStockWallet#readme"
+}
