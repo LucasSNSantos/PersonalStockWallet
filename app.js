@@ -14,6 +14,14 @@ app.use((req, res, next) => {
   next();
 });
 
+// //bodyparser configs
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+
+//handlebars config
+app.engine('handlebars', handlebars({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+
 //mongoose config
 mongoose.Promise = global.Promise;
 mongoose
