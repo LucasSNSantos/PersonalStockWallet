@@ -1,21 +1,41 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const { route } = require('../../Desktop/ProjetoExpress/Routes/admin');
 const router = express.Router();
 require('../Models/User');
 
 const User = mongoose.model('Users');
 
-// router.post('/Add', (req, res) => {
-//   res.send('User creation');
-// });
+router.get('/Add', (req, res) => {
+  res.render('user/createuser');
+});
+
+//Creating a new user
+router.post('/Register', (req, res) => {
+  var errors = [];
+
+  if (
+    !req.body.Email ||
+    typeof req.body.Email == null ||
+    req.body.Email == null
+  ) {
+    errors.push({ text: 'Invalid Email' });
+  }
+
+  if (
+    !req.body.Name ||
+    typeof req.body.Name == undefined ||
+    req.body.Name == null
+  ) {
+    erros.push({ texto: 'Invalid Name' });
+  }
+});
 
 router.get('/Profile', (req, res) => {
   res.send('User Profile');
 });
 
 router.get('/List', (req, res) => {
-  res.send('Users list');
+  res.render('user/userslist');
 });
 
 router.get('/', (req, res) => {

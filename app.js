@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 const user = require('./Routes/users');
+const handlebars = require('express-handlebars');
+const path = require('path');
 
 const app = express();
 const PORT = 8787;
@@ -33,13 +35,16 @@ mongoose
     console.log('Error connecting: ' + err);
   });
 
+//Config Static Files
+app.use(express.static(path.join(__dirname, 'public')));
+
 //nodemailer config
 
 //routes config
 app.use('/User', user);
 
 app.get('/', (req, res) => {
-  res.send('Main Page');
+  res.send('Main Page of the App');
 });
 
 //port config

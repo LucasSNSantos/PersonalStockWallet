@@ -1,0 +1,26 @@
+<h2> Registrated Users </h2>
+<hr>
+
+<a href="/User/Add">
+    <button class="btn btn-success"> Register New Users</button>
+</a>
+{{#each categorias}}
+<div class="card">
+    <div class="card-body">
+        <h4>{{name}}</h4>
+        <small>Email: {{Email}}</small><br><br>
+        <!--   <a href="/admin/categorias/edit/{{_id}}">
+            <button class="btn btn-success mt4">Editar Categoria</button>
+        </a>
+        -->
+        <!-- 
+        <form action="/admin/categorias/deletar/{{_id}}" method="post"> 
+        <input type="hidden" name="id" value="{{_id}}">
+        <button type="submit" class="btn btn-danger mt-2">Deletar categoria</button>
+        </form>
+        -->
+    </div>
+</div>
+{{else}}
+<h4>Any User registered yet</h4>
+{{/each}}
