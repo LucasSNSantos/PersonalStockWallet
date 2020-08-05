@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 const user = require('./Routes/users');
 const handlebars = require('express-handlebars');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+const flash = require('connect-flash');
 const path = require('path');
 
 const app = express();
@@ -10,15 +13,25 @@ const PORT = 8787;
 
 //config middlewares
 
-app.use((req, res, next) => {
-  res.locals.error_msg = console.log('A error has occurred');
-  res.locals.success_msg = console.log('Successfully');
-  next();
-});
+//config Sessions
+app.use(
+  session({
+    secret: 'keyDaSession',
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+app.use(flash());
+
+// app.use((req, res, next) => {
+//   res.locals.error_msg = console.log('A error has occurred');
+//   res.locals.success_msg = console.log('Success operation');
+//   next();
+// });
 
 // //bodyparser configs
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 //handlebars config
 app.engine('handlebars', handlebars({ defaultLayout: 'main' }));

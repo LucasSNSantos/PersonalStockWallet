@@ -11,31 +11,41 @@ router.get('/Add', (req, res) => {
 
 //Creating a new user
 router.post('/Register', (req, res) => {
-  var errors = [];
-
-  if (
-    !req.body.Email ||
-    typeof req.body.Email == null ||
-    req.body.Email == null
-  ) {
-    errors.push({ text: 'Invalid Email' });
-  }
-
-  if (
-    !req.body.Name ||
-    typeof req.body.Name == undefined ||
-    req.body.Name == null
-  ) {
-    erros.push({ texto: 'Invalid Name' });
-  }
+  console.log('Sem erros');
+  const newUser = {
+    name: req.body.name,
+    email: req.body.email,
+    total_money: 0,
+  };
+  new User(newUser)
+    .save()
+    .then(() => {
+      console.log('Registrado com Sucesso');
+      res.redirect('/User/List');
+    })
+    .catch((err) => {
+      console.log(err);
+      res.redirect('/User/Add');
+    });
 });
 
 router.get('/Profile', (req, res) => {
   res.send('User Profile');
 });
 
+router.post('/Login', (req, res) => {
+  res.send('Login');
+  //render login
+});
+
 router.get('/List', (req, res) => {
-  res.render('user/userslist');
+  User.find()
+    .sort()
+    .lean()
+    .then((users) => {
+      res.render('user/userslist', { users: users });
+      console.log('Users in Database: ' + users);
+    });
 });
 
 router.get('/', (req, res) => {
